@@ -30,3 +30,9 @@ __pycache__/
 .idea/
 .DS_Store
 notes.txt
+
+CLAUDE.md
+/docs
+# Private working notes (kept local only, not part of the public repo)
+/CLAUDE.md
+/docs/

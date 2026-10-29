@@ -9,7 +9,7 @@ good parts and fixing what made research slow: data re-read every epoch, logic t
 Windows-only tooling, no tests.
 
 > **Status:** early development. The repository is being built module by module; nothing is
-> runnable yet. See `docs/roadmap.md` for the build phases.
+> runnable yet.
 
 ## Goals
 
@@ -28,7 +28,6 @@ Windows-only tooling, no tests.
 ```
 vortexnet/        package: config, data, models, losses, training, evaluation, tracking, cli
 configs/          YAML templates and experiment overrides
-docs/             roadmap, lessons learned, legacy analysis
 tests/            pytest
 ```
 
