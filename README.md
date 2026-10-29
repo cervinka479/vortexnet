@@ -26,15 +26,24 @@ Windows-only tooling, no tests.
 ## Planned layout
 
 ```
-vortexnet/        package: config, data, models, losses, training, evaluation, tracking, cli
+src/vortexnet/    package: config, data, models, losses, training, evaluation, tracking, cli
 configs/          YAML templates and experiment overrides
 tests/            pytest
 ```
 
 ## Development
 
-Python 3.12 managed with [uv](https://docs.astral.sh/uv/). Setup instructions will follow once
-`pyproject.toml` lands.
+Python 3.12 managed with [uv](https://docs.astral.sh/uv/) on Linux and Windows:
+
+```bash
+uv sync                 # creates .venv from uv.lock, downloads Python 3.12 if needed
+uv run pytest           # tests
+uv run ruff check .     # lint
+uv run ruff format .    # format
+```
+
+The default PyPI `torch` wheel is CUDA-enabled on Linux; on Windows or CPU-only machines
+see the [PyTorch install selector](https://pytorch.org/get-started/locally/) for the matching index.
 
 ## License
 

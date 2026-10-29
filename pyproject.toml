@@ -1,0 +1,54 @@
+# Single source of truth for the project: metadata, dependencies, tool settings.
+# Managed by uv (`uv sync`, `uv add`, `uv run`). Do not edit uv.lock by hand.
+
+[project]
+name = "vortexnet"
+version = "0.1.0"
+description = "Lightweight PyTorch framework for flow-structure identification from velocity-gradient data"
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Eduard Červinka" }]
+# Pinned to one minor version on purpose: torch/wandb wheels lag behind new Pythons.
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "torch>=2.6",
+    "numpy>=2.0",
+    "pandas>=2.2",
+    "pydantic>=2.9",
+    "pyyaml>=6.0",
+    "typer>=0.15",
+]
+
+# Tools needed to develop the package but not to run it. Installed by `uv sync`
+# by default, skipped with `uv sync --no-dev` (e.g. on a cluster).
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "ruff>=0.8",
+]
+
+# How to turn this folder into an installable package. hatchling is a small,
+# standards-compliant build backend; uv installs the package in editable mode,
+# so edits in src/ are visible immediately without reinstalling.
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/vortexnet"]
+
+# ---------------------------------------------------------------- tooling ---
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+# E/F: pyflakes + pycodestyle errors, I: import sorting, UP: modern syntax,
+# B: common bug patterns, N: naming conventions.
+select = ["E", "F", "I", "UP", "B", "N"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
