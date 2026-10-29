@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+
+# Data, experiment outputs, caches (never commit)
+/data/
+/datasets/
+/outputs/
+/cache/
+*.npy
+*.pt
+*.pth
+*.csv
+*.parquet
+
+# Tracking backends
+/runs/
+/wandb/
+/mlruns/
+
+# Notebooks: keep code, drop outputs via nbstripout (to be configured)
+.ipynb_checkpoints/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+notes.txt
